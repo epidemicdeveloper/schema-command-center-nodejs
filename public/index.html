@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Epidemic Marketing Schema Command Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=1773607769">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="Agency Analytics Version Epidemic profilePic PNG.svg" alt="Epidemic Marketing" class="sidebar-logo">
+      <h1>Schema Command Center</h1>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-title">Main</div>
+      <a class="nav-item active" data-view="dashboard" onclick="showView('dashboard')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        Home
+      </a>
+      
+      <div class="nav-section-title">Tools</div>
+      <a class="nav-item" data-view="autodetect" onclick="showView('autodetect')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        Auto-Detect
+      </a>
+      <a class="nav-item" data-view="wizard" onclick="showView('wizard')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+          <path d="M2 17l10 5 10-5"></path>
+          <path d="M2 12l10 5 10-5"></path>
+        </svg>
+        Guided Wizard
+      </a>
+      <a class="nav-item" onclick="openGraphModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3"></circle>
+          <circle cx="19" cy="5" r="2"></circle>
+          <circle cx="5" cy="5" r="2"></circle>
+          <circle cx="5" cy="19" r="2"></circle>
+          <circle cx="19" cy="19" r="2"></circle>
+          <line x1="12" y1="9" x2="12" y2="3"></line>
+          <line x1="9.5" y1="13.5" x2="5" y2="17"></line>
+          <line x1="14.5" y1="13.5" x2="19" y2="17"></line>
+        </svg>
+        Schema Graph
+      </a>
+      <a class="nav-item" data-view="audit" onclick="showView('audit')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        Audit URL
+      </a>
+      <a class="nav-item" data-view="preview" onclick="showView('preview')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        SERP Preview
+      </a>
+      <a class="nav-item" data-view="competitor" onclick="showView('competitor')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <line x1="8" y1="11" x2="14" y2="11"></line>
+          <line x1="11" y1="8" x2="11" y2="14"></line>
+        </svg>
+        Competitor Compare
+      </a>
+      <a class="nav-item" data-view="guidance" onclick="showView('guidance')">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+        Schema Guidance
+      </a>
+
+      <div class="nav-section-title">Account</div>
+      <a class="nav-item" id="adminUsersBtn" onclick="openUserManagement()" style="display:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+        Manage Users
+      </a>
+      <a class="nav-item" onclick="openChangePassword()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        Change Password
+      </a>
+      <a class="nav-item nav-logout" onclick="handleLogout()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        Sign Out
+      </a>
+    </nav>
+    <div class="sidebar-user" id="sidebarUser">
+      <div class="sidebar-user-avatar" id="userAvatar"></div>
+      <div class="sidebar-user-info">
+        <span class="sidebar-user-name" id="userName"></span>
+        <span class="sidebar-user-role" id="userRole"></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- User Management Modal -->
+  <div class="modal-overlay" id="userMgmtModal" style="display:none;">
+    <div class="modal-container modal-lg">
+      <div class="modal-header">
+        <h2>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;vertical-align:-4px;margin-right:8px;">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+          User Management
+        </h2>
+        <button class="modal-close" onclick="closeUserManagement()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Add User Form -->
+        <div class="user-mgmt-section">
+          <h3>Add New User</h3>
+          <form id="addUserForm" class="add-user-form">
+            <div class="form-row">
+              <div class="form-field">
+                <label>Username</label>
+                <input type="text" id="newUsername" placeholder="Username (min. 3 chars)" minlength="3" required>
+              </div>
+              <div class="form-field">
+                <label>Password</label>
+                <input type="password" id="newPassword" placeholder="Password (min. 8 chars)" minlength="8" required>
+              </div>
+              <div class="form-field">
+                <label>Role</label>
+                <select id="newUserRole">
+                  <option value="user">User</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </div>
+              <div class="form-field form-field-btn">
+                <button type="submit" class="btn-add-user">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="8.5" cy="7" r="4"></circle>
+                    <line x1="20" y1="8" x2="20" y2="14"></line>
+                    <line x1="23" y1="11" x2="17" y2="11"></line>
+                  </svg>
+                  Add User
+                </button>
+              </div>
+            </div>
+            <div class="form-message" id="addUserMsg"></div>
+          </form>
+        </div>
+
+        <!-- User List -->
+        <div class="user-mgmt-section">
+          <h3>Registered Users</h3>
+          <div class="user-list" id="userList">
+            <div class="user-list-loading">Loading users...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div class="modal-overlay" id="changePwModal" style="display:none;">
+    <div class="modal-container modal-sm">
+      <div class="modal-header">
+        <h2>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;vertical-align:-4px;margin-right:8px;">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          Change Password
+        </h2>
+        <button class="modal-close" onclick="closeChangePassword()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="changePwForm">
+          <div class="form-group-modal">
+            <label>Current Password</label>
+            <input type="password" id="currentPw" required placeholder="Enter current password">
+          </div>
+          <div class="form-group-modal">
+            <label>New Password</label>
+            <input type="password" id="newPw" required placeholder="Enter new password (min. 8 chars)" minlength="8">
+          </div>
+          <div class="form-group-modal">
+            <label>Confirm New Password</label>
+            <input type="password" id="confirmNewPw" required placeholder="Re-enter new password">
+          </div>
+          <div class="form-message" id="changePwMsg"></div>
+          <div class="modal-actions">
+            <button type="button" class="btn-cancel" onclick="closeChangePassword()">Cancel</button>
+            <button type="submit" class="btn-save">Update Password</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Top Navbar -->
+    <header class="top-navbar">
+      <div class="navbar-left">
+        <span class="navbar-title">Epidemic Marketing Schema Command Center</span>
+      </div>
+      <div class="navbar-right">
+        <button class="btn-settings" onclick="openSettingsModal()" title="Settings">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+        <span class="navbar-date" id="currentDate"></span>
+        <div class="navbar-user">S</div>
+      </div>
+    </header>
+
+    <!-- Content Area -->
+    <div class="content-area">
+      
+      <!-- Dashboard View -->
+      <section id="view-dashboard" class="view active">
+        <div class="dashboard-header">
+          <h1>Epidemic Marketing Schema Command Center</h1>
+          <p>Generate advanced JSON-LD structured data with Knowledge Graph entity linking, Wikidata QIDs, Wikipedia references, and full @graph architecture.</p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="stat-box highlight">
+            <div class="stat-value" id="stat-schemas">0</div>
+            <div class="stat-label">Schemas</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="stat-audits">0</div>
+            <div class="stat-label">Audits</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="stat-avg">--</div>
+            <div class="stat-label">Avg Score</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="stat-entities">0</div>
+            <div class="stat-label">Entities</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="stat-mostused">--</div>
+            <div class="stat-label">Most Used</div>
+          </div>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="feature-cards">
+          <div class="feature-card" onclick="showView('autodetect')">
+            <div class="card-icon teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </div>
+            <div class="card-content">
+              <h3>Auto-Detect from URL</h3>
+              <p>Paste any URL and AI generates schema by scanning the page for existing structured data and metadata.</p>
+            </div>
+          </div>
+          
+          <div class="feature-card" onclick="showView('wizard')">
+            <div class="card-icon blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <div class="card-content">
+              <h3>Guided Wizard</h3>
+              <p>Step-by-step schema builder with entity linking, multi-location support, and FAQ integration.</p>
+            </div>
+          </div>
+          
+          <div class="feature-card" onclick="openGraphModal()">
+            <div class="card-icon purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+                <circle cx="12" cy="12" r="3"></circle>
+                <circle cx="19" cy="5" r="2"></circle>
+                <circle cx="5" cy="5" r="2"></circle>
+                <line x1="12" y1="9" x2="12" y2="5"></line>
+                <line x1="9.5" y1="10" x2="7" y2="7"></line>
+                <line x1="14.5" y1="10" x2="17" y2="7"></line>
+              </svg>
+            </div>
+            <div class="card-content">
+              <h3>View Schema Connections</h3>
+              <p>Visualize entity relationships in an interactive graph. See how your schema entities connect.</p>
+            </div>
+          </div>
+          
+          <div class="feature-card" onclick="showView('audit')">
+            <div class="card-icon pink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </div>
+            <div class="card-content">
+              <h3>Audit a URL</h3>
+              <p>Score any site's schema markup. Get detailed analysis with actionable recommendations.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="quick-links-section">
+          <div class="section-header">
+            <h2>Quick Actions</h2>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <button class="btn btn-secondary" onclick="showView('wizard')">+ New Schema</button>
+            <button class="btn btn-secondary" onclick="showView('autodetect')">🔍 Scan URL</button>
+            <button class="btn btn-secondary" onclick="showView('audit')">📊 Run Audit</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Auto-Detect View -->
+      <section id="view-autodetect" class="view" style="width:100%;max-width:100%;">
+        <div class="autodetect-container" style="width:100%;max-width:100%;padding:0;">
+          <div class="autodetect-header" style="margin-bottom:20px;">
+            <h2>Auto-Detect Schema</h2>
+            <p>Enter a URL to scan for existing schema markup, get an enhanced version with AI-powered schema enhancements.</p>
+          </div>
+          
+          <div class="url-input-group" style="max-width:100%;">
+            <input type="url" id="autodetect-url" placeholder="https://example.com" style="flex:1;min-width:0;" />
+            <button class="btn btn-primary" onclick="autoDetect()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              Scan & Enhance
+            </button>
+          </div>
+
+          <div id="autodetect-output" class="output-area" style="display: none;">
+            <div class="output-header">
+              <h3>Generated Schema</h3>
+              <div class="output-actions">
+                <button class="btn btn-secondary" onclick="copyAutodetect()">📋 Copy</button>
+                <button class="btn btn-secondary" onclick="downloadAutodetect()">⬇️ JSON</button>
+              </div>
+            </div>
+            <div class="output-content">
+              <pre id="autodetect-json"></pre>
+            </div>
+          </div>
+
+          <div id="autodetect-loading" class="loading-spinner" style="display: none;">
+            <div class="spinner"></div>
+            <span id="autodetect-status">Scanning URL...</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Wizard View -->
+      <section id="view-wizard" class="view">
+        <div class="wizard-container">
+          <div class="wizard-form-panel">
+            <!-- Wizard Header -->
+            <div class="wizard-page-header">
+              <h2>🧙 Guided Schema Builder</h2>
+              <p>Create structured JSON-LD schema markup with our step-by-step wizard</p>
+            </div>
+            
+            <!-- Entity Section -->
+            <div class="form-section">
+              <div class="form-section-header">
+                <div class="section-icon" style="background: rgba(0, 184, 169, 0.15); color: var(--accent-teal);">🏢</div>
+                <h3>Entity Information</h3>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Entity Type</label>
+                <select id="entity-type" class="form-select" onchange="liveGenerate()">
+                  <option value="Organization">Organization</option>
+                  <option value="LocalBusiness">LocalBusiness</option>
+                  <option value="ProfessionalService">ProfessionalService</option>
+                  <option value="MedicalBusiness">MedicalBusiness</option>
+                  <option value="MedicalClinic">MedicalClinic</option>
+                  <option value="Dentist">Dentist</option>
+                  <option value="Attorney">Attorney</option>
+                  <option value="RealEstateAgent">RealEstateAgent</option>
+                  <option value="Restaurant">Restaurant</option>
+                  <option value="Hotel">Hotel</option>
+                  <option value="Store">Store</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Name</label>
+                <input type="text" id="entity-name" class="form-input" placeholder="Acme Medical Center" oninput="liveGenerate()" />
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Description</label>
+                <textarea id="entity-description" class="form-textarea" placeholder="Brief description of your business..." oninput="liveGenerate()"></textarea>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Website URL</label>
+                  <input type="url" id="entity-url" class="form-input" placeholder="https://example.com" oninput="liveGenerate()" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Logo URL</label>
+                  <input type="url" id="entity-logo" class="form-input" placeholder="https://example.com/logo.png" oninput="liveGenerate()" />
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Phone</label>
+                  <input type="tel" id="entity-phone" class="form-input" placeholder="+1 (555) 123-4567" oninput="liveGenerate()" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input type="email" id="entity-email" class="form-input" placeholder="contact@example.com" oninput="liveGenerate()" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Social / sameAs Section -->
+            <div class="form-section">
+              <div class="form-section-header">
+                <div class="section-icon" style="background: rgba(59, 130, 246, 0.15); color: var(--accent-blue);">🔗</div>
+                <h3>Social Profiles & sameAs Links</h3>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Social & Directory URLs (press Enter to add)</label>
+                <div class="tags-container" id="sameas-tags">
+                  <input type="text" class="tags-input" placeholder="Paste URLs: Facebook, LinkedIn, Wikipedia, Wikidata..." onkeydown="handleTagInput(event, 'sameas')" />
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Wikipedia URL</label>
+                  <input type="url" id="wiki-url" class="form-input" placeholder="https://en.wikipedia.org/wiki/..." oninput="liveGenerate()" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Wikidata QID</label>
+                  <input type="text" id="wikidata-qid" class="form-input" placeholder="Q123456" oninput="liveGenerate()" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Locations Section -->
+            <div class="form-section">
+              <div class="form-section-header">
+                <div class="section-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--accent-purple);">📍</div>
+                <h3>Locations</h3>
+              </div>
+              
+              <div class="entries-list" id="locations-list"></div>
+              <button class="add-entry-btn" onclick="addLocation()">+ Add Location</button>
+            </div>
+
+            <!-- Services Section -->
+            <div class="form-section">
+              <div class="form-section-header">
+                <div class="section-icon" style="background: rgba(236, 72, 153, 0.15); color: var(--accent-pink);">⚙️</div>
+                <h3>Services & Areas Served</h3>
+              </div>
+              
+              <div class="entries-list" id="services-list"></div>
+              <button class="add-entry-btn" onclick="addService()">+ Add Service</button>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="form-section">
+              <div class="form-section-header">
+                <div class="section-icon" style="background: rgba(249, 115, 22, 0.15); color: var(--accent-orange);">❓</div>
+                <h3>FAQ (FAQPage Schema)</h3>
+              </div>
+              
+              <div class="entries-list" id="faq-list"></div>
+              <button class="add-entry-btn" onclick="addFAQ()">+ Add FAQ</button>
+            </div>
+
+            <!-- Reviews Section -->
+            <div class="form-section">
+              <div class="form-section-header">
+                <div class="section-icon" style="background: rgba(34, 197, 94, 0.15); color: var(--accent-green);">⭐</div>
+                <h3>Reviews & Ratings</h3>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Aggregate Rating</label>
+                  <input type="number" id="rating-value" class="form-input" placeholder="4.8" min="0" max="5" step="0.1" oninput="liveGenerate()" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Review Count</label>
+                  <input type="number" id="rating-count" class="form-input" placeholder="127" min="0" oninput="liveGenerate()" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Founders & People Section -->
+            <div class="form-section">
+              <div class="form-section-header">
+                <div class="section-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--accent-purple);">👤</div>
+                <h3>Founders & Key People</h3>
+              </div>
+              
+              <div class="entries-list" id="people-list"></div>
+              <button class="add-entry-btn" onclick="addPerson()">+ Add Person</button>
+            </div>
+
+            <!-- Area Served Section -->
+            <div class="form-section">
+              <div class="form-section-header">
+                <div class="section-icon" style="background: rgba(59, 130, 246, 0.15); color: var(--accent-blue);">🗺️</div>
+                <h3>Area Served & Geo-Targeting</h3>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Primary City</label>
+                  <input type="text" id="area-city" class="form-input" placeholder="Phoenix" oninput="liveGenerate()" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">State/Region</label>
+                  <input type="text" id="area-state" class="form-input" placeholder="Arizona" oninput="liveGenerate()" />
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Geo Radius (miles)</label>
+                  <input type="number" id="geo-radius" class="form-input" placeholder="50" min="1" oninput="liveGenerate()" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Latitude</label>
+                  <input type="text" id="geo-lat" class="form-input" placeholder="33.4484" oninput="liveGenerate()" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Longitude</label>
+                  <input type="text" id="geo-lng" class="form-input" placeholder="-112.0740" oninput="liveGenerate()" />
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Service Areas (cities/regions, press Enter to add)</label>
+                <div class="tags-container" id="service-areas-tags">
+                  <input type="text" class="tags-input" placeholder="Type city names and press Enter..." onkeydown="handleTagInput(event, 'service-areas')" />
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Local Landmarks & Attractions (ties your brand to local places)</label>
+                <div class="entries-list" id="landmarks-list"></div>
+                <button class="add-entry-btn" onclick="addLandmark()">+ Add Landmark</button>
+              </div>
+            </div>
+
+            <!-- KnowsAbout / Entity Section -->
+            <div class="form-section">
+              <div class="form-section-header">
+                <div class="section-icon" style="background: rgba(249, 115, 22, 0.15); color: var(--accent-orange);">🧠</div>
+                <h3>KnowsAbout & Entity Links</h3>
+              </div>
+              <p class="text-sm text-muted" style="margin-bottom: 12px;">Link to Wikipedia, Wikidata, and Google Knowledge Graph to establish entity relationships. This is crucial for advanced schema.</p>
+              
+              <div class="form-group">
+                <label class="form-label">Entity Topics (press Enter to add)</label>
+                <div class="tags-container" id="knowsabout-tags">
+                  <input type="text" class="tags-input" placeholder="Search for entities or paste Wikipedia URLs..." onkeydown="handleTagInput(event, 'knowsabout')" />
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Wikipedia URL</label>
+                  <input type="url" id="wiki-url-2" class="form-input" placeholder="https://en.wikipedia.org/wiki/..." oninput="liveGenerate()" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Wikidata QID</label>
+                  <input type="text" id="wikidata-qid-2" class="form-input" placeholder="Q123456" oninput="liveGenerate()" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Google Knowledge Graph MID (optional)</label>
+                <input type="text" id="kg-mid" class="form-input" placeholder="/m/0xyz123 or kg:/g/1xyz..." oninput="liveGenerate()" />
+              </div>
+            </div>
+
+            <!-- sameAs / Citations Section -->
+            <div class="form-section">
+              <div class="form-section-header">
+                <div class="section-icon" style="background: rgba(236, 72, 153, 0.15); color: var(--accent-pink);">🔗</div>
+                <h3>sameAs Links (Citations, Stacks, Awards)</h3>
+              </div>
+              <p class="text-sm text-muted" style="margin-bottom: 12px;">Add all citations, Google stacks, awards, press releases, and authoritative links. This builds brand authority.</p>
+              
+              <div class="form-group">
+                <label class="form-label">Citation & Authority Links (press Enter to add)</label>
+                <div class="tags-container" id="sameas-tags-2">
+                  <input type="text" class="tags-input" placeholder="Paste URLs from Yelp, BBB, Crunchbase, awards, press releases..." onkeydown="handleTagInput(event, 'sameas')" />
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Google Business Profile URL</label>
+                <input type="url" id="gmb-url" class="form-input" placeholder="https://maps.google.com/..." oninput="liveGenerate()" />
+              </div>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Facebook URL</label>
+                  <input type="url" id="facebook-url" class="form-input" placeholder="https://facebook.com/yourbusiness" oninput="liveGenerate()" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">LinkedIn URL</label>
+                  <input type="url" id="linkedin-url" class="form-input" placeholder="https://linkedin.com/company/..." oninput="liveGenerate()" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Twitter/X URL</label>
+                  <input type="url" id="twitter-url" class="form-input" placeholder="https://twitter.com/yourbusiness" oninput="liveGenerate()" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">YouTube URL</label>
+                  <input type="url" id="youtube-url" class="form-input" placeholder="https://youtube.com/@yourbusiness" oninput="liveGenerate()" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Potential Action Section -->
+            <div class="form-section">
+              <div class="form-section-header">
+                <div class="section-icon" style="background: rgba(0, 184, 169, 0.15); color: var(--accent-teal);">⚡</div>
+                <h3>PotentialAction (CTAs)</h3>
+              </div>
+              <p class="text-sm text-muted" style="margin-bottom: 12px;">Define actions users can take. Google looks for these to understand conversion paths.</p>
+              
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Action Type</label>
+                  <select id="action-type" class="form-select" onchange="liveGenerate()">
+                    <option value="">Select action...</option>
+                    <option value="ContactPage">Contact Form</option>
+                    <option value="PhoneAction">Phone Call</option>
+                    <option value="ReserveAction">Reservation/Booking</option>
+                    <option value="BuyAction">Purchase</option>
+                    <option value="OrderAction">Order Online</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Action Target URL</label>
+                  <input type="url" id="action-target" class="form-input" placeholder="https://example.com/contact" oninput="liveGenerate()" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Offer Catalog Section -->
+            <div class="form-section">
+              <div class="form-section-header">
+                <div class="section-icon" style="background: rgba(34, 197, 94, 0.15); color: var(--accent-green);">📋</div>
+                <h3>Offer Catalog (Services List)</h3>
+              </div>
+              <p class="text-sm text-muted" style="margin-bottom: 12px;">List all services offered. This creates a structured catalog that search engines can index.</p>
+              
+              <div class="entries-list" id="offers-list"></div>
+              <button class="add-entry-btn" onclick="addOffer()">+ Add Service/Offer</button>
+            </div>
+
+          </div>
+
+          <!-- Preview Panel -->
+          <div class="wizard-preview-panel">
+            <div class="preview-header">
+              <h3>📊 JSON-LD Preview</h3>
+            </div>
+            <div class="preview-content">
+              <div class="preview-stats">
+                <div class="preview-stat">
+                  <div class="value" id="preview-entities">0</div>
+                  <div class="label">Entities</div>
+                </div>
+                <div class="preview-stat">
+                  <div class="value" id="preview-links">0</div>
+                  <div class="label">Links</div>
+                </div>
+                <div class="preview-stat">
+                  <div class="value" id="preview-size">0</div>
+                  <div class="label">KB</div>
+                </div>
+              </div>
+              
+              <div class="validation-section" id="validation-list">
+                <div class="validation-item warning">⚠️ Enter entity name to begin</div>
+              </div>
+              
+              <div class="output-content" style="margin-top: 16px; max-height: 400px;">
+                <pre id="wizard-json" style="font-size: 0.75rem;">{ "@context": "https://schema.org", "@graph": [] }</pre>
+              </div>
+              
+              <div style="display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;">
+                <button class="btn btn-primary" onclick="copyToClipboard()">📋 Copy JSON-LD</button>
+                <button class="btn btn-secondary" onclick="copyMinified()">🗜️ Copy Minified</button>
+                <button class="btn btn-secondary" onclick="downloadJSON()">⬇️ Download</button>
+                <button class="btn btn-outline" onclick="testSchemaWithGoogle()">🧪 Test Schema</button>
+              </div>
+              <p class="text-xs text-muted" style="margin-top: 8px;">💡 Minified schema prevents easy copying by competitors</p>
+              
+              <!-- Schema Testing Quick Links -->
+              <div style="margin-top: 14px; padding: 12px 14px; background: rgba(124,58,237,0.07); border: 1px solid rgba(124,58,237,0.2); border-radius: 8px;">
+                <p class="text-xs" style="color: var(--text-secondary); margin-bottom: 8px; font-weight: 600;">🧪 Quick Test Tools</p>
+                <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                  <button class="btn btn-outline btn-sm" onclick="testSchemaWithGoogle()" style="font-size:0.72rem;">Google Rich Results</button>
+                  <button class="btn btn-outline btn-sm" onclick="testSchemaWithSchemaOrg()" style="font-size:0.72rem;">Schema.org Validator</button>
+                </div>
+              </div>
+              
+              <div class="test-schema-section" style="margin-top: 16px; padding: 16px; background: var(--bg-primary); border-radius: var(--border-radius-sm); border: 1px solid var(--border-light);">
+                <h4 style="font-size: 0.85rem; font-weight: 600; margin-bottom: 8px; color: var(--text-primary);">🧪 Schema Testing</h4>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 12px;">Validate your schema with official testing tools:</p>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <button class="btn btn-outline btn-sm" onclick="testSchemaWithGoogle()">Google Rich Results</button>
+                  <button class="btn btn-outline btn-sm" onclick="testSchemaWithSchemaOrg()">Schema.org</button>
+                  <button class="btn btn-outline btn-sm" onclick="testStructuredDataLinter()">Structured Data Linter</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Audit View -->
+      <section id="view-audit" class="view">
+        <div class="audit-container">
+          <div class="audit-header">
+            <h2>Audit Schema Markup</h2>
+            <p>Enter a URL to analyze its structured data and get a detailed score.</p>
+          </div>
+          
+          <div class="url-input-group">
+            <input type="url" id="audit-url" placeholder="https://example.com" />
+            <button class="btn btn-primary" onclick="auditURL()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              Audit
+            </button>
+          </div>
+
+          <div id="audit-output"></div>
+        </div>
+      </section>
+
+      <!-- SERP Preview View -->
+      <section id="view-preview" class="view">
+        <div class="audit-container">
+          <div class="audit-header">
+            <h2>🖥️ SERP Rich Results Preview</h2>
+            <p>See how your schema might appear in Google search results. Paste your JSON-LD schema below or scan a URL to preview rich snippets.</p>
+          </div>
+          <div class="preview-input-tabs" style="display:flex;gap:8px;margin-bottom:16px;">
+            <button class="btn btn-primary btn-sm" onclick="serpPreviewMode('paste')" id="serp-tab-paste" style="opacity:1;">📋 Paste Schema</button>
+            <button class="btn btn-outline btn-sm" onclick="serpPreviewMode('url')" id="serp-tab-url" style="opacity:0.6;">🔗 Scan URL</button>
+          </div>
+          <div id="serp-paste-input">
+            <textarea id="serp-schema-input" placeholder='Paste your JSON-LD schema here...' style="width:100%;height:180px;background:#0f172a;color:#e2e8f0;border:1px solid #334155;border-radius:8px;padding:12px;font-family:monospace;font-size:0.82rem;resize:vertical;"></textarea>
+            <button class="btn btn-primary" style="margin-top:8px;" onclick="generateSerpPreview()">🖥️ Generate Preview</button>
+          </div>
+          <div id="serp-url-input" style="display:none;">
+            <div class="url-input-group">
+              <input type="url" id="serp-url" placeholder="https://example.com/blog/your-post" />
+              <button class="btn btn-primary" onclick="serpPreviewFromURL()">🔍 Scan & Preview</button>
+            </div>
+          </div>
+          <div id="serp-preview-output" style="margin-top:20px;"></div>
+        </div>
+      </section>
+
+      <!-- Competitor Compare View -->
+      <section id="view-competitor" class="view">
+        <div class="audit-container">
+          <div class="audit-header">
+            <h2>🔍 Competitor Schema Comparison</h2>
+            <p>Compare your schema against competitors. Discover what schema properties they have that you're missing — and vice versa.</p>
+          </div>
+          <div class="competitor-inputs" style="display:grid;gap:12px;margin-bottom:16px;">
+            <div>
+              <label style="display:block;font-size:0.82rem;color:#94a3b8;margin-bottom:4px;">Your URL</label>
+              <div class="url-input-group">
+                <input type="url" id="comp-your-url" placeholder="https://yoursite.com/page" />
+              </div>
+            </div>
+            <div>
+              <label style="display:block;font-size:0.82rem;color:#94a3b8;margin-bottom:4px;">Competitor 1 URL</label>
+              <div class="url-input-group">
+                <input type="url" id="comp-url-1" placeholder="https://competitor1.com/page" />
+              </div>
+            </div>
+            <div>
+              <label style="display:block;font-size:0.82rem;color:#94a3b8;margin-bottom:4px;">Competitor 2 URL (optional)</label>
+              <div class="url-input-group">
+                <input type="url" id="comp-url-2" placeholder="https://competitor2.com/page" />
+              </div>
+            </div>
+            <div>
+              <label style="display:block;font-size:0.82rem;color:#94a3b8;margin-bottom:4px;">Competitor 3 URL (optional)</label>
+              <div class="url-input-group">
+                <input type="url" id="comp-url-3" placeholder="https://competitor3.com/page" />
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="runCompetitorCompare()">🔍 Compare Schemas</button>
+          <div id="competitor-output" style="margin-top:24px;"></div>
+        </div>
+      </section>
+
+      <!-- Schema Guidance View -->
+      <section id="view-guidance" class="view">
+        <div class="view-header">
+          <h2>📚 Schema Stacking Strategy & Guidance</h2>
+          <p>Advanced schema implementation strategy for maximum Knowledge Graph impact</p>
+        </div>
+        <div class="guidance-container" style="padding:24px;">
+          <!-- Four Pillars -->
+          <div class="guidance-card" style="background:#1e293b;border-radius:12px;padding:24px;margin-bottom:20px;">
+            <h3 style="color:#f59e0b;margin-bottom:16px;">🏆 The Four Most Powerful Schema Properties</h3>
+            <p style="color:#94a3b8;margin-bottom:16px;">According to advanced schema research, these four properties have the most impact on your Knowledge Graph presence:</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+              <div style="background:#0f172a;padding:16px;border-radius:8px;border-left:4px solid #EC4899;">
+                <strong style="color:#EC4899;">1. sameAs</strong>
+                <p style="color:#94a3b8;font-size:0.9rem;margin-top:8px;">Link to ALL citations, directories, social profiles, Wikipedia, Wikidata, and press mentions. The more authoritative links, the stronger your entity footprint.</p>
+              </div>
+              <div style="background:#0f172a;padding:16px;border-radius:8px;border-left:4px solid #F97316;">
+                <strong style="color:#F97316;">2. knowsAbout</strong>
+                <p style="color:#94a3b8;font-size:0.9rem;margin-top:8px;">Link to Wikipedia/Wikidata pages for every topic your business is an expert in. Use Wikidata Q-codes (Google Machine IDs) for maximum entity strength.</p>
+              </div>
+              <div style="background:#0f172a;padding:16px;border-radius:8px;border-left:4px solid #10B981;">
+                <strong style="color:#10B981;">3. areaServed</strong>
+                <p style="color:#94a3b8;font-size:0.9rem;margin-top:8px;">Define your service areas with rich geo-circle data. Tie locations to your brand with descriptive text that helps Google understand your geographic reach.</p>
+              </div>
+              <div style="background:#0f172a;padding:16px;border-radius:8px;border-left:4px solid #06B6D4;">
+                <strong style="color:#06B6D4;">4. mentions</strong>
+                <p style="color:#94a3b8;font-size:0.9rem;margin-top:8px;">Link to competitors, partners, tools, and industry concepts. This builds Knowledge Graph connections and establishes your entity in the broader ecosystem.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Schema Stacking -->
+          <div class="guidance-card" style="background:#1e293b;border-radius:12px;padding:24px;margin-bottom:20px;">
+            <h3 style="color:#8B5CF6;margin-bottom:16px;">🏗️ The 3-Layer Schema Stack</h3>
+            <p style="color:#94a3b8;margin-bottom:16px;">Layer your schema across different page types for maximum Knowledge Graph coverage:</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+              <div style="background:#0f172a;padding:16px;border-radius:8px;">
+                <div style="color:#22c55e;font-weight:600;margin-bottom:8px;">📍 Layer 1: Sitewide Schema</div>
+                <ul style="color:#94a3b8;font-size:0.9rem;margin-left:16px;">
+                  <li><strong>Organization</strong> - Core business entity with sameAs, knowsAbout, mentions</li>
+                  <li><strong>WebSite</strong> - With SearchAction for sitelinks searchbox</li>
+                </ul>
+                <div style="color:#64748b;font-size:0.8rem;margin-top:8px;">✅ Include on EVERY page of your site</div>
+              </div>
+              <div style="background:#0f172a;padding:16px;border-radius:8px;">
+                <div style="color:#3b82f6;font-weight:600;margin-bottom:8px;">📄 Layer 2: Service Page Schema</div>
+                <ul style="color:#94a3b8;font-size:0.9rem;margin-left:16px;">
+                  <li><strong>Service</strong> - With areaServed, provider, offers</li>
+                  <li><strong>Product</strong> - For product/service pages</li>
+                  <li><strong>FAQPage</strong> - Only if visible FAQs exist!</li>
+                </ul>
+                <div style="color:#64748b;font-size:0.8rem;margin-top:8px;">✅ Add to specific service/product pages</div>
+              </div>
+              <div style="background:#0f172a;padding:16px;border-radius:8px;">
+                <div style="color:#f59e0b;font-weight:600;margin-bottom:8px;">🏠 Layer 3: Local Page Schema</div>
+                <ul style="color:#94a3b8;font-size:0.9rem;margin-left:16px;">
+                  <li><strong>LocalBusiness</strong> - With geo, openingHours, areaServed</li>
+                  <li><strong>HowTo</strong> - For tutorial/guide pages</li>
+                  <li><strong>Article/BlogPosting</strong> - For blog content</li>
+                </ul>
+                <div style="color:#64748b;font-size:0.8rem;margin-top:8px;">✅ Add to location-specific and content pages</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entity Linking -->
+          <div class="guidance-card" style="background:#1e293b;border-radius:12px;padding:24px;margin-bottom:20px;">
+            <h3 style="color:#06B6D4;margin-bottom:16px;">🔗 Entity Linking Best Practices</h3>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;">
+              <div>
+                <h4 style="color:#e2e8f0;margin-bottom:8px;">Google Machine IDs (Wikidata Q-codes)</h4>
+                <p style="color:#94a3b8;font-size:0.9rem;">Use Wikidata Q-codes for the most powerful entity linking. Find Q-codes at <a href="https://wikidata.org" target="_blank" style="color:#06B6D4;">wikidata.org</a> by searching for your topic. Example: SEO = Q316680</p>
+              </div>
+              <div>
+                <h4 style="color:#e2e8f0;margin-bottom:8px;">Wikipedia URLs</h4>
+                <p style="color:#94a3b8;font-size:0.9rem;">Link to Wikipedia articles for topics, people, and organizations. This connects your schema to established Knowledge Graph entities.</p>
+              </div>
+              <div>
+                <h4 style="color:#e2e8f0;margin-bottom:8px;">@id References</h4>
+                <p style="color:#94a3b8;font-size:0.9rem;">Use @id references to link entities instead of duplicating. Your Organization should have one canonical @id used across all pages.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Warnings -->
+          <div class="guidance-card" style="background:#7c2d12;border-radius:12px;padding:24px;">
+            <h3 style="color:#fb923c;margin-bottom:16px;">⚠️ Critical Warnings</h3>
+            <div style="display:grid;gap:12px;">
+              <div style="background:rgba(0,0,0,0.2);padding:12px;border-radius:8px;">
+                <strong style="color:#fbbf24;">FAQPage Requires Visible Content</strong>
+                <p style="color:#94a3b8;font-size:0.9rem;margin-top:4px;">Only add FAQPage schema if there are actual Q&As visible on the page. Google penalizes mismatched FAQ schema!</p>
+              </div>
+              <div style="background:rgba(0,0,0,0.2);padding:12px;border-radius:8px;">
+                <strong style="color:#fbbf24;">Homepage vs Sitewide Schema</strong>
+                <p style="color:#94a3b8;font-size:0.9rem;margin-top:4px;">Organization schema on homepage should be your canonical entity. Service pages should reference it via @id, not duplicate it.</p>
+              </div>
+              <div style="background:rgba(0,0,0,0.2);padding:12px;border-radius:8px;">
+                <strong style="color:#fbbf24;">Don't Invent Data</strong>
+                <p style="color:#94a3b8;font-size:0.9rem;margin-top:4px;">Never invent ratings, prices, dates, or author information. Only include data that actually exists and can be verified.</p>
+              </div>
+              <div style="background:rgba(0,0,0,0.2);padding:12px;border-radius:8px;">
+                <strong style="color:#fbbf24;">HowTo Requires Step Structure</strong>
+                <p style="color:#94a3b8;font-size:0.9rem;margin-top:4px;">Only add HowTo schema if your page has actual step-by-step instructions. The steps must be visible in the page content.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Graph Modal -->
+  <div class="modal-overlay" id="graph-modal">
+    <div class="modal resizable-modal" id="graph-modal-content" style="width: 900px; min-width: 500px; min-height: 400px; height: 600px; max-width: none; max-height: none;">
+      <!-- Resize handles (8 directions) -->
+      <div class="resize-edge n"  data-dir="n"></div>
+      <div class="resize-edge s"  data-dir="s"></div>
+      <div class="resize-edge e"  data-dir="e"></div>
+      <div class="resize-edge w"  data-dir="w"></div>
+      <div class="resize-edge ne" data-dir="ne"></div>
+      <div class="resize-edge nw" data-dir="nw"></div>
+      <div class="resize-edge se" data-dir="se"></div>
+      <div class="resize-edge sw" data-dir="sw"></div>
+      <div class="modal-resize-handle" id="modal-resize-handle"></div>
+      <div class="modal-header">
+        <h2>Schema Graph Visualization</h2>
+        <button class="modal-close" onclick="closeGraphModal()">&times;</button>
+      </div>
+      <div class="modal-tabs">
+        <button class="modal-tab active" onclick="switchGraphTab('scan')">Scan URL</button>
+        <button class="modal-tab" onclick="switchGraphTab('paste')">Paste JSON-LD</button>
+      </div>
+      <div class="modal-content" style="flex: 1; overflow: hidden; display: flex; flex-direction: column;">
+        <div id="graph-tab-scan">
+          <div class="url-input-group">
+            <input type="url" id="graph-url" placeholder="https://example.com" />
+            <button class="btn btn-primary" onclick="visualizeURL()">Fetch & Visualize</button>
+          </div>
+        </div>
+        <div id="graph-tab-paste" style="display: none;">
+          <textarea id="graph-json" class="form-textarea" style="min-height: 120px; font-family: monospace; font-size: 0.85rem;" placeholder='Paste your JSON-LD here...'></textarea>
+          <button class="btn btn-primary" style="margin-top: 12px;" onclick="visualizeFromPaste()">Visualize</button>
+        </div>
+        
+        <div id="graph-container" class="graph-container" style="display: none; flex: 1; margin-top: 16px; min-height: 300px;">
+          <div class="graph-main">
+            <div class="graph-toolbar">
+              <div class="graph-toolbar-left">
+                <span id="graph-info">0 nodes, 0 links</span>
+              </div>
+              <div class="graph-toolbar-right">
+                <button class="toolbar-btn" onclick="resetGraphPanZoom()">Reset View</button>
+              </div>
+            </div>
+            <div class="graph-canvas">
+              <svg id="graph-svg"></svg>
+            </div>
+            <div class="graph-legend" id="graph-legend"></div>
+          </div>
+          <aside class="graph-sidebar">
+            <div class="sidebar-header">
+              <h3>Entity Details</h3>
+            </div>
+            <div class="sidebar-content">
+              <div id="entity-details" class="entity-details">
+                <p class="text-muted">Click a node to see details</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="app.js?v=1773607769"></script>
+
+    <!-- Suggestion Wizard Popover -->
+    <div id="wizard-backdrop" class="wizard-backdrop" onclick="closeSuggestionWizard()"></div>
+    <div id="suggestion-wizard-popover" class="suggestion-wizard-popover">
+        <!-- populated by JS -->
+    </div>
+
+    <!-- Schema Testing Modal -->
+    <div id="schema-test-modal" class="schema-test-modal" style="display:none;" onclick="if(event.target===this)this.style.display='none'">
+        <div class="schema-test-inner">
+            <div class="schema-test-header">
+                <h3>🧪 Test Your Schema</h3>
+                <button onclick="document.getElementById('schema-test-modal').style.display='none'" class="wizard-close-btn">✕</button>
+            </div>
+            <p class="text-sm text-muted" style="margin-bottom:16px;">Your schema has been copied to clipboard. Choose a testing tool:</p>
+            <div class="test-tool-grid">
+                <a href="https://developers.google.com/search/docs/appearance/structured-data" target="_blank" class="test-tool-card">
+                    <div class="test-tool-icon">🔍</div>
+                    <div class="test-tool-name">Schema Markup Validator</div>
+                    <div class="test-tool-desc">Google's structured data documentation & validation</div>
+                </a>
+                <a href="https://validator.schema.org/" target="_blank" class="test-tool-card">
+                    <div class="test-tool-icon">✅</div>
+                    <div class="test-tool-name">Schema.org Validator</div>
+                    <div class="test-tool-desc">Official schema.org markup validator</div>
+                </a>
+                <a href="https://search.google.com/search-console" target="_blank" class="test-tool-card">
+                    <div class="test-tool-icon">📊</div>
+                    <div class="test-tool-name">Google Search Console</div>
+                    <div class="test-tool-desc">Check indexing & rich result performance</div>
+                </a>
+                <a href="https://developers.google.com/search/docs/appearance/structured-data" target="_blank" class="test-tool-card">
+                    <div class="test-tool-icon">📚</div>
+                    <div class="test-tool-name">Google Schema Docs</div>
+                    <div class="test-tool-desc">Official structured data documentation</div>
+                </a>
+            </div>
+            <div class="schema-copied-notice">
+                <span>📋</span> Schema copied to clipboard — paste it into any tool above
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settings-modal" onclick="if(event.target===this)closeSettingsModal()">
+      <div class="modal" style="width: 500px; max-width: 90vw;">
+        <div class="modal-header">
+          <h2>⚙️ Settings</h2>
+          <button class="modal-close" onclick="closeSettingsModal()">&times;</button>
+        </div>
+        <div class="modal-content" style="padding: 20px;">
+          <div class="settings-section">
+            <h3 class="settings-title">🔑 API Keys</h3>
+            <p class="settings-desc">API keys are stored locally in your browser and used for enhanced research features.</p>
+            
+            <div class="form-group" style="margin-bottom: 16px;">
+              <label class="form-label">SerpAPI Key</label>
+              <div style="display: flex; gap: 8px;">
+                <input type="password" id="serpapi-key-input" class="form-input" placeholder="Enter your SerpAPI key..." style="flex: 1;">
+                <button class="btn btn-secondary" onclick="toggleApiKeyVisibility('serpapi-key-input')" title="Show/Hide">
+                  <span id="serpapi-key-visibility">👁️</span>
+                </button>
+              </div>
+              <p class="settings-hint">Get a key at <a href="https://serpapi.com/" target="_blank">serpapi.com</a> for reliable Google search results</p>
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 16px;">
+              <label class="form-label">OpenAI API Key (Optional)</label>
+              <div style="display: flex; gap: 8px;">
+                <input type="password" id="openai-key-input" class="form-input" placeholder="For future AI features..." style="flex: 1;">
+                <button class="btn btn-secondary" onclick="toggleApiKeyVisibility('openai-key-input')" title="Show/Hide">
+                  <span id="openai-key-visibility">👁️</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-section" style="margin-top: 20px;">
+            <h3 class="settings-title">📊 Research Settings</h3>
+            
+            <div class="form-group" style="margin-bottom: 12px;">
+              <label class="checkbox-label">
+                <input type="checkbox" id="settings-crosscheck-schema" checked>
+                <span>Cross-check research results against existing schema</span>
+              </label>
+              <p class="settings-hint">When enabled, profiles already in sameAs won't be suggested</p>
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 12px;">
+              <label class="form-label">Minimum sameAs links recommended</label>
+              <input type="number" id="settings-min-sameas" class="form-input" value="5" min="1" max="20" style="width: 100px;">
+            </div>
+          </div>
+          
+          <div style="margin-top: 24px; display: flex; gap: 10px; justify-content: flex-end;">
+            <button class="btn btn-secondary" onclick="closeSettingsModal()">Cancel</button>
+            <button class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

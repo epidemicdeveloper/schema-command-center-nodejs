@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup — Schema Command Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/login.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Header -->
+            <div class="login-header">
+                <div class="login-logo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <h1>Initial Setup</h1>
+                <p>Create your administrator account</p>
+            </div>
+
+            <!-- Body -->
+            <div class="login-body">
+                <!-- Info -->
+                <div class="setup-intro">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <p>Welcome! This is the first time setup. Create an admin account that will manage access to the Schema Command Center.</p>
+                </div>
+
+                <!-- Error message -->
+                <div class="error-message" id="errorMsg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="15" y1="9" x2="9" y2="15"></line>
+                        <line x1="9" y1="9" x2="15" y2="15"></line>
+                    </svg>
+                    <span id="errorText"></span>
+                </div>
+
+                <!-- Success message -->
+                <div class="success-message" id="successMsg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span id="successText"></span>
+                </div>
+
+                <form id="setupForm" autocomplete="off">
+                    <!-- Username -->
+                    <div class="form-group">
+                        <label for="username">Admin Username</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="username" name="username" 
+                                   placeholder="Choose a username (min. 3 characters)" 
+                                   autocomplete="off" 
+                                   required autofocus minlength="3">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="password" name="password" 
+                                   placeholder="Choose a strong password" 
+                                   autocomplete="new-password" 
+                                   required minlength="8">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            <button type="button" class="toggle-password" onclick="togglePassword('password')" tabindex="-1">
+                                <svg id="eyeIcon1" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                        <ul class="password-requirements" id="pwReqs">
+                            <li id="reqLength">At least 8 characters</li>
+                            <li id="reqUpper">Contains an uppercase letter</li>
+                            <li id="reqNumber">Contains a number</li>
+                        </ul>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="confirmPassword" name="confirmPassword" 
+                                   placeholder="Re-enter your password" 
+                                   autocomplete="new-password" 
+                                   required>
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit" class="btn-login" id="setupBtn">
+                        <span class="btn-text">Create Admin Account</span>
+                        <div class="spinner"></div>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="login-footer">
+            <p>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                One-time setup — this page will not be accessible after account creation
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('setupForm');
+        const errorMsg = document.getElementById('errorMsg');
+        const errorText = document.getElementById('errorText');
+        const successMsg = document.getElementById('successMsg');
+        const successText = document.getElementById('successText');
+        const setupBtn = document.getElementById('setupBtn');
+        const pwInput = document.getElementById('password');
+
+        function showError(msg) {
+            errorText.textContent = msg;
+            errorMsg.classList.add('visible');
+            successMsg.classList.remove('visible');
+        }
+
+        function showSuccess(msg) {
+            successText.textContent = msg;
+            successMsg.classList.add('visible');
+            errorMsg.classList.remove('visible');
+        }
+
+        function hideMessages() {
+            errorMsg.classList.remove('visible');
+            successMsg.classList.remove('visible');
+        }
+
+        function togglePassword(fieldId) {
+            const input = document.getElementById(fieldId);
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+
+        // Real-time password strength validation
+        pwInput.addEventListener('input', () => {
+            const pw = pwInput.value;
+            document.getElementById('reqLength').className = pw.length >= 8 ? 'met' : '';
+            document.getElementById('reqUpper').className = /[A-Z]/.test(pw) ? 'met' : '';
+            document.getElementById('reqNumber').className = /[0-9]/.test(pw) ? 'met' : '';
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideMessages();
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (!username || !password || !confirmPassword) {
+                showError('All fields are required.');
+                return;
+            }
+            if (username.length < 3) {
+                showError('Username must be at least 3 characters.');
+                return;
+            }
+            if (password.length < 8) {
+                showError('Password must be at least 8 characters.');
+                return;
+            }
+            if (password !== confirmPassword) {
+                showError('Passwords do not match.');
+                return;
+            }
+
+            setupBtn.classList.add('loading');
+            setupBtn.disabled = true;
+
+            try {
+                const res = await fetch('/auth/setup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password, confirmPassword })
+                });
+
+                const data = await res.json();
+
+                if (res.ok && data.success) {
+                    showSuccess('Admin account created! Redirecting...');
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 1500);
+                } else {
+                    showError(data.error || 'Setup failed. Please try again.');
+                    setupBtn.classList.remove('loading');
+                    setupBtn.disabled = false;
+                }
+            } catch (err) {
+                showError('Unable to connect to server. Please try again.');
+                setupBtn.classList.remove('loading');
+                setupBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
