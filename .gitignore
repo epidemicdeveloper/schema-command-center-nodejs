@@ -1,0 +1,58 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# If you find yourself ignoring a lot of files, it might be better to check in a build script that builds your static files from source, then add those build scripts to your repository.
+
+#custom NINJA
+data/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+node_modules/
+
+# Build files
+build/
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Output of `npm pack`
+*.tgz
+
+# Output of `wp-scripts plugin-zip`
+*.zip
+
+# dotenv environment variables file
+.env
+.env.local
